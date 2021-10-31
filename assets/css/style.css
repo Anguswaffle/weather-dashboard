@@ -1,0 +1,18 @@
+* {
+    font-family: sans-serif;
+}
+
+header {
+    font-size: 30px;
+    font-weight: bold;
+    align-items: flex-end;
+    justify-content: center;
+    display: flex;
+    height: 50px;
+}
+
+.default {
+    background-image:radial-gradient(
+        rgba(114, 170, 253, 0.397) 0%,
+        rgba(9, 18, 151, 0.774) 100%);
+}
