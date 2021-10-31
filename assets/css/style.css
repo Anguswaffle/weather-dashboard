@@ -2,11 +2,8 @@
     font-family: sans-serif;
 }
 
-h1 {
-    font-size: 30px;
-}
-
 header {
+    font-size: 30px;
     font-weight: bold;
     display: flex;
     align-items: flex-end;
@@ -14,10 +11,13 @@ header {
     height: 50px;
 }
 
-.default {
-    background-image:radial-gradient(
-        rgba(114, 170, 253, 0.397) 0%,
-        rgba(9, 18, 151, 0.774) 100%);
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+main h1 {
+    font-size: 25px;
 }
 
 aside {
@@ -27,20 +27,38 @@ aside {
     margin: 15px 0px 5px 5px;
 }
 
+button, input {
+    height: 30px;
+    margin: 5px 0px;
+    border-radius: 6px;
+}
+
 hr {
     width: 100%;
     margin: 10px 0px;
 }
+
+.default {
+    background-image:radial-gradient(
+        rgba(114, 170, 253, 0.397) 0%,
+        rgba(9, 18, 151, 0.774) 100%);
+}
+
 
 #search-card {
     display: flex;
     flex-direction: column;
 }
 
-#city-input, #submit-btn {
-    height: 30px;
-    margin-top: 5px;
-    border-radius: 6px;
+#current-weather {
+    border: 1px solid black;
+    width: 100%;
+    margin: 15px;
+}
+
+#current-weather h1,
+#current-weather p {
+    margin: 15px 0px;
 }
 
 #submit-btn {

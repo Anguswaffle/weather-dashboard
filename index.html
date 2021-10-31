@@ -15,18 +15,25 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <aside>
-        <form action="city-search" id="search-card">
-            <h1>Search for a City:</h1>
-            <input type="search" placeholder="Chicago" id="city-input">
-            <button type="submit" id="submit-btn">Search</button>
-        </form>
-        <hr>
-    </aside>
-    <section id="current-weather">
-
-    </section>
-
+    <main>
+        <aside>
+            <form action="city-search" id="search-card">
+                <h1>Search for a City:</h1>
+                <input type="search" placeholder="Chicago" id="city-input">
+                <button type="submit" id="submit-btn">Search</button>
+            </form>
+            <hr>
+            <ul id="past-searches">
+            </ul>
+        </aside>
+        <section id="current-weather">
+            <h1>CITY NAME AND DATE</h1>
+            <p>TEMP: numbers</p>
+            <p>WIND: info</p>
+            <p>HUMIDITY: percent</p>
+            <p>UV INDEX: pretty number</p>
+        </section>
+    </main>
 </body>
 
 </html>
