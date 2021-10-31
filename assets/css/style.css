@@ -2,12 +2,15 @@
     font-family: sans-serif;
 }
 
-header {
+h1 {
     font-size: 30px;
+}
+
+header {
     font-weight: bold;
+    display: flex;
     align-items: flex-end;
     justify-content: center;
-    display: flex;
     height: 50px;
 }
 
@@ -15,4 +18,31 @@ header {
     background-image:radial-gradient(
         rgba(114, 170, 253, 0.397) 0%,
         rgba(9, 18, 151, 0.774) 100%);
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    width: 22%;
+    margin: 15px 0px 5px 5px;
+}
+
+hr {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+#search-card {
+    display: flex;
+    flex-direction: column;
+}
+
+#city-input, #submit-btn {
+    height: 30px;
+    margin-top: 5px;
+    border-radius: 6px;
+}
+
+#submit-btn {
+    background-color: cornflowerblue;
 }
