@@ -17,23 +17,45 @@
 
     <main>
         <aside>
-            <form action="city-search" id="search-card">
+            <div id="search-card">
                 <h1>Search for a City:</h1>
                 <input type="search" placeholder="Chicago" id="city-input">
                 <button type="submit" id="submit-btn">Search</button>
-            </form>
+            </div>
             <hr>
             <ul id="past-searches">
             </ul>
         </aside>
-        <section id="current-weather">
-            <h1>CITY NAME AND DATE</h1>
-            <p>TEMP: numbers</p>
-            <p>WIND: info</p>
-            <p>HUMIDITY: percent</p>
-            <p>UV INDEX: pretty number</p>
+        <section id="main-content">
+            <section id="current-weather">
+                <h1 id="current-city">CITY NAME AND DATE</h1>
+                <p>Temp: <span id="current-temp"></span></p>
+                <p>Wind: <span id="current-wind"></span></p>
+                <p>Humidity: <span id="current-humidity"></span></p>
+                <p>UV Index: <span id="current-uv"></span></p>
+            </section>
+            <section id="forecast">
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+                <div class="card">
+
+                </div>
+            </section>
         </section>
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/moment-timezone-with-data.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

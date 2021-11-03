@@ -44,23 +44,41 @@ hr {
         rgba(9, 18, 151, 0.774) 100%);
 }
 
+.card{
+    border: 1px solid black;
+    flex: 1 1 50px;
+
+}
+
 
 #search-card {
     display: flex;
     flex-direction: column;
 }
 
-#current-weather {
-    border: 1px solid black;
+#main-content {
     width: 100%;
     margin: 15px;
 }
 
+#current-weather {
+    border: 1px solid black;
+    margin: 15px 0px;
+}
+
 #current-weather h1,
 #current-weather p {
-    margin: 15px 0px;
+    margin: 15px;
+}
+
+#forecast{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 #submit-btn {
     background-color: cornflowerblue;
 }
+
