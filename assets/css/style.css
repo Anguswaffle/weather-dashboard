@@ -51,6 +51,24 @@ hr {
 }
 
 
+/* UVI classes */
+.good {
+    background-color: green;
+}
+
+.moderate {
+    background-color: orange;
+}
+
+.severe {
+    background-color: red;
+}
+
+.uvi {
+    padding: 2px 10px;
+}
+
+
 #search-card {
     display: flex;
     flex-direction: column;
