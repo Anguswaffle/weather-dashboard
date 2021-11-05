@@ -1,12 +1,13 @@
 var inputFieldEl = document.querySelector('#city-input')
 var submitBtn = document.querySelector('#submit-btn')
+var historyEl = document.querySelector('#past-searches');
 var forecastContainerEl = document.querySelector('#forecast')
 var currentCityEl = document.querySelector('#current-city');
-
+var pastSearchesEl = localStorage.getItem('history') || '[]';
+var pastSearches = JSON.parse(pastSearchesEl);
 
 // Initiates fetch requests and populateData function
-function fetchData(){
-    var cityName = inputFieldEl.value;
+function fetchData(cityName) {
     var apiKey = '162c997af48d86f877c2812ef39f3538';
     var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&units=metric&appid=' + apiKey;
 
@@ -20,7 +21,6 @@ function fetchData(){
             }
         })
         .then(weatherData => {
-            // console.log(weatherData);
             var lat = weatherData.coord.lat;
             var lon = weatherData.coord.lon;
             var forecastUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude=minutely,hourly,alerts&units=metric&appid=' + apiKey;
@@ -33,12 +33,15 @@ function fetchData(){
                 .then(forecastData => {
                     // Both data objects are passed into populateData
                     populateData(weatherData, forecastData);
-                    saveCity();
+
+                    saveCity(weatherData.name);
                 })
 
         })
+        // Error catching
         .catch((error) => {
             currentCityEl.textContent = error;
+            resetPage();
         });
 
 }
@@ -149,18 +152,42 @@ function convertWind(deg, speed) {
 }
 
 function resetPage() {
-    inputFieldEl.value = '';
+    inputFieldEl.textContent = '';
     removeForecastEls();
 }
 
-function saveCity() {
-    var newBtn = document.createElement('button')
-    newBtn.setAttribute('class', 'history-btn')
-    newBtn.textContent = inputFieldEl.value;
-    document.querySelector('#past-searches').append(newBtn);
+// Saves city name in history
+function saveCity(cityName) {
+    if (inputFieldEl.value === '' || pastSearches.includes(cityName)) return;
+    makeNewBtn(cityName)
+    inputFieldEl.value = '';
+
+    pastSearches.push(cityName);
+    localStorage.setItem('history', JSON.stringify(pastSearches));
 }
 
-submitBtn.addEventListener('click', function(event){
+// Makes new buttons
+function makeNewBtn(cityName) {
+    var newBtn = document.createElement('button')
+    newBtn.setAttribute('class', 'history-btn')
+    newBtn.textContent = cityName;
+    historyEl.append(newBtn);
+    newBtn.addEventListener('click', function (event) {
+        event.preventDefault;
+        fetchData(newBtn.textContent);
+    })
+}
+
+// Populates history section with city names saved in local storage
+function populateHistory() {
+    for (var i = 0; i < pastSearches.length; i++) {
+        makeNewBtn (pastSearches[i]);
+    }
+}
+
+submitBtn.addEventListener('click', function (event) {
     event.preventDefault;
-    fetchData();
+    fetchData(inputFieldEl.value);
 });
+
+populateHistory();
